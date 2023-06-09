@@ -16,7 +16,7 @@ function mainGame() {
     
     // canvas background color
 
-    cvs.fillStyle = "green"
+    cvs.fillStyle = "black"
     cvs.fillRect(0,0,400,400)
 
     // grid line
@@ -31,6 +31,7 @@ function mainGame() {
         cvs.lineTo(400, rl)
     }
 
+    cvs.strokeStyle = 'grey'
     cvs.stroke()
 
 }
