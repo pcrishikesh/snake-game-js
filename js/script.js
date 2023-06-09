@@ -3,16 +3,25 @@
 let cvs = document.getElementById('canvas').getContext("2d")
 let snakePostionX = 80;
 let snakePostionY = 80;
+let nPostx = 0
+let nPosy = 0
 
 // onload window function
 
 window.onload = ()=>{
-    mainGame()
+    document.addEventListener('keydown', inputControl)
+    setInterval(mainGame,300)
+
 }
 
 // main game function
 
 function mainGame() {
+
+    // move snake
+
+    snakePostionX += nPostx
+    snakePostionY += nPosy
 
     // game area
     
@@ -48,3 +57,29 @@ function mainGame() {
 }
 
 // input controll function
+
+function inputControl(e) {
+
+    switch (e.keyCode) {
+        case 38:
+            // UP
+            nPosy -= 20
+            nPostx = 0
+            break;
+        case 40:
+            // Down
+            nPosy += 20
+            nPostx = 0
+            break
+        case 39:
+            // right
+            nPostx += 20
+            nPosy=0
+            break
+        case 37:
+            // left
+            nPostx -= 20
+            nPosy=0
+            break
+    }
+}
