@@ -5,7 +5,3 @@ h1, h2, .game-canvas {
 h1 {
     text-decoration: underline;
 }
-
-#canvas {
-    background-color: red;
-}
