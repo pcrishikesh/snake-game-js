@@ -1,0 +1,11 @@
+h1, h2, .game-canvas {
+    text-align: center;
+}
+
+h1 {
+    text-decoration: underline;
+}
+
+#canvas {
+    background-color: red;
+}
