@@ -10,7 +10,7 @@ let nPosy = 0
 
 window.onload = ()=>{
     document.addEventListener('keydown', inputControl)
-    setInterval(mainGame,300)
+    setInterval(mainGame,500)
 
 }
 
@@ -23,6 +23,17 @@ function mainGame() {
     snakePostionX += nPostx
     snakePostionY += nPosy
 
+    // control snake movement
+
+    if (snakePostionX > 400) {
+        snakePostionX = 0
+    }else if (snakePostionY > 400) {
+        snakePostionY = 0
+    }else if (snakePostionX < 0) {
+        snakePostionX = 400
+    }else if (snakePostionY < 0) {
+        snakePostionY = 400
+    }
     // game area
     
     // canvas background color
