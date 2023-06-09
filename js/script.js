@@ -1,6 +1,8 @@
 // variable declaration
 
 let cvs = document.getElementById('canvas').getContext("2d")
+let snakePostionX = 80;
+let snakePostionY = 80;
 
 // onload window function
 
@@ -34,6 +36,15 @@ function mainGame() {
     cvs.strokeStyle = 'grey'
     cvs.stroke()
 
+    // snake
+
+    cvs.fillStyle = "yellow"
+    cvs.fillRect(snakePostionX,snakePostionY,20,20)
+
+    // fruit
+
+    cvs.fillStyle = "red"
+    cvs.fillRect(120,140,20,20)
 }
 
 // input controll function
