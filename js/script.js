@@ -15,7 +15,7 @@ let score = 0
 
 window.onload = ()=>{
     document.addEventListener('keydown', inputControl)
-    setInterval(mainGame,300)
+    game = setInterval(mainGame,200)
 
 }
 
@@ -78,6 +78,10 @@ function mainGame() {
             20,
             20
         )
+
+        if (snakePostionX == snakeTail[i].x && snakePostionY == snakeTail[i].y && snakeSize > 1) {
+            clearInterval(game)
+        }
         
     }
 
