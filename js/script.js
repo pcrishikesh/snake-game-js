@@ -9,6 +9,7 @@ let fPosx = 140;
 let fPosy = 140;
 let snakeTail = []
 let snakeSize = 1
+let score = 0
 
 // onload window function
 
@@ -21,6 +22,7 @@ window.onload = ()=>{
 // main game function
 
 function mainGame() {
+    document.getElementById('score').innerHTML = score
 
     // move snake
 
@@ -82,6 +84,7 @@ function mainGame() {
     // if snake eat food
 
     if(snakePostionX == fPosx && snakePostionY == fPosy) {
+        score+=10
         snakeSize++;
         fPosx = Math.floor(Math.random()*20)*20;
         fPosy = Math.floor(Math.random()*20)*20;
