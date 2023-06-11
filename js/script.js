@@ -5,12 +5,14 @@ let snakePostionX = 80;
 let snakePostionY = 80;
 let nPostx = 0
 let nPosy = 0
+let fPosx = 140;
+let fPosy = 140;
 
 // onload window function
 
 window.onload = ()=>{
     document.addEventListener('keydown', inputControl)
-    setInterval(mainGame,500)
+    setInterval(mainGame,300)
 
 }
 
@@ -56,15 +58,26 @@ function mainGame() {
     cvs.strokeStyle = 'grey'
     cvs.stroke()
 
+    // fruit
+
+    cvs.fillStyle = "red"
+    cvs.fillRect(fPosx,fPosy,20,20)
+
     // snake
 
     cvs.fillStyle = "yellow"
     cvs.fillRect(snakePostionX,snakePostionY,20,20)
 
-    // fruit
+    // if snake eat food
 
-    cvs.fillStyle = "red"
-    cvs.fillRect(120,140,20,20)
+    if(snakePostionX == fPosx && snakePostionY == fPosy) {
+        fPosx = Math.floor(Math.random()*20)*20;
+        fPosy = Math.floor(Math.random()*20)*20;
+    }
+
+
+    
+
 }
 
 // input controll function
