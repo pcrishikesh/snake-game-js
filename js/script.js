@@ -7,6 +7,8 @@ let nPostx = 0
 let nPosy = 0
 let fPosx = 140;
 let fPosy = 140;
+let snakeTail = []
+let snakeSize = 1
 
 // onload window function
 
@@ -66,16 +68,33 @@ function mainGame() {
     // snake
 
     cvs.fillStyle = "yellow"
-    cvs.fillRect(snakePostionX,snakePostionY,20,20)
+    // cvs.fillRect(snakePostionX,snakePostionY,20,20)
+    for (let i = 0; i < snakeTail.length; i++) {
+        cvs.fillRect(
+            snakeTail[i].x,
+            snakeTail[i].y,
+            20,
+            20
+        )
+        
+    }
 
     // if snake eat food
 
     if(snakePostionX == fPosx && snakePostionY == fPosy) {
+        snakeSize++;
         fPosx = Math.floor(Math.random()*20)*20;
         fPosy = Math.floor(Math.random()*20)*20;
     }
 
+    snakeTail.push({
+        x:snakePostionX,
+        y:snakePostionY
+    })
 
+    while(snakeTail.length>snakeSize) {
+        snakeTail.shift();
+    }
     
 
 }
