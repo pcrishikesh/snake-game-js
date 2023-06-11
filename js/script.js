@@ -10,12 +10,13 @@ let fPosy = 140;
 let snakeTail = []
 let snakeSize = 1
 let score = 0
+let gameStatus = 'get ready'
 
 // onload window function
 
 window.onload = ()=>{
     document.addEventListener('keydown', inputControl)
-    game = setInterval(mainGame,200)
+     game = setInterval(mainGame,200)
 
 }
 
@@ -23,6 +24,7 @@ window.onload = ()=>{
 
 function mainGame() {
     document.getElementById('score').innerHTML = score
+    document.getElementById('game-status').innerHTML = gameStatus
 
     // move snake
 
@@ -81,6 +83,8 @@ function mainGame() {
 
         if (snakePostionX == snakeTail[i].x && snakePostionY == snakeTail[i].y && snakeSize > 1) {
             clearInterval(game)
+            gameStatus = 'ended'
+            document.getElementById('game-status').innerHTML = gameStatus
         }
         
     }
@@ -131,5 +135,11 @@ function inputControl(e) {
             nPostx -= 20
             nPosy=0
             break
+
+    }
+
+    if (e.keyCode == 37 || e.keyCode == 38 || e.keyCode == 39 || e.keyCode == 40) {
+        gameStatus = 'started'
+        document.getElementById('game-status').innerHTML = gameStatus
     }
 }
